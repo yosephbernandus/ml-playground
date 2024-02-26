@@ -21,6 +21,12 @@ def check_structure(data):
     return result
 
 
+def check_structure(data):
+    num_rows = len(data)
+    num_cols = len(data[0])
+    return [num_rows, num_cols]
+
+
 data = [[1, 2, 3],
         [4, 5, 6],
         [7, 8, 9],
