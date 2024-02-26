@@ -18,6 +18,20 @@ def calculate_duration(route, duration_table):
     return sum(list_of_time)
 
 
+def calculate_duration(route, duration_table):
+    total_time = 0
+    for i in range(len(route) - 1):
+        start = ord(route[i]) - ord('A')
+        end = ord(route[i + 1]) - ord('A')
+        total_time += duration_table[start][end]
+    # Add the time to return to the initial position
+    start = ord(route[-1]) - ord('A')
+    end = ord(route[0]) - ord('A')
+    total_time += duration_table[start][end]
+    return total_time
+
+
+
 duration_table = [
     [0, 3, 5, 10, 4],
     [3, 0, 6, 8, 9],
@@ -59,3 +73,5 @@ print(total_time)
 
 # 3 + 6 + 7 + 1 + 9 + 9 + 4
 # AB + BC + CD + DE + EB + BE + EA
+
+1 + 4 + 6 + 6 + 6 + 1 + 1
