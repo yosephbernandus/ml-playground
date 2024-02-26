@@ -10,7 +10,7 @@ def clean_phone_number(phone_list):
         else:
             phone = f'62{phone}'
 
-        if len(phone.split('62')[1]) < 11:
+        if len(phone.split('62')[1]) != 11:
             phone = 'Invalid number'
         else:
             phone = int(phone)
