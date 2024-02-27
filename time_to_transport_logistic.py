@@ -31,6 +31,24 @@ def calculate_duration(route, duration_table):
     return total_time
 
 
+def calculate_duration(route, duration_table):
+    # Define a mapping from city labels to indices
+    city_indices = {city: index for index, city in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ')}
+    
+    total_time = 0
+    for i in range(len(route) - 1):
+        start = city_indices[route[i]]  # Get index directly from the mapping
+        end = city_indices[route[i + 1]]
+        total_time += duration_table[start][end]
+    
+    # Add the time to return to the initial position
+    start = city_indices[route[-1]]
+    end = city_indices[route[0]]
+    total_time += duration_table[start][end]
+    
+    return total_time
+
+
 
 duration_table = [
     [0, 3, 5, 10, 4],
